@@ -1,2 +1,2 @@
 # compiladores
-Repositorio do curso Costrução de Compiladores
+Repositorio do curso Construção de Compiladores
