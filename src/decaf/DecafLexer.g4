@@ -29,16 +29,16 @@ DIGITO : ('0'..'9')+;
 
 INT: DIGITO+;
 
-HEXA: '0x' [0-9a-fA-F];
+HEXA: '0x' [0-9a-fA-F]+;
 
 WS_ : (' ' | '\n' ) -> skip;
 
 COMENTARIO : '//' (~'\n')* '\n' -> skip;
 
-CHAR : '\'' (ESC|~'\'') '\'';
+//CHAR : '\'' (ESC|~'\'') '\'';
 STRING : '"' (ESC|~'"')* '"';
 
-CHAR_LITERAL: 'CHAR';
+CHAR_LITERAL: '\'' (ESC|~'\'') '\'';
 
 //STRING_LITERAL : "CHAR";
 
