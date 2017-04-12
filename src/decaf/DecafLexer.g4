@@ -14,18 +14,33 @@ tokens
   TK_class
 }
 
-LCURLY : '{';
-RCURLY : '}';
+PROGRAMA : 'class' 'Program' ABRE_CHAVES CAMPO* METODO* FECHA_CHAVES;
 
-ID  :
-  ('a'..'z' | 'A'..'Z')+;
+
+
+ABRE_CHAVES : '{';
+FECHA_CHAVES : '}';
+
+ID : LETRA (LETRA | DIGITO )*;
+
+LETRA  : ('a'..'z' | 'A'..'Z')+;
+
+DIGITO : ('0'..'9')+;
+
+INT: DIGITO+;
+
+HEXA: '0x' [0-9a-fA-F];
 
 WS_ : (' ' | '\n' ) -> skip;
 
-SL_COMMENT : '//' (~'\n')* '\n' -> skip;
+COMENTARIO : '//' (~'\n')* '\n' -> skip;
 
 CHAR : '\'' (ESC|~'\'') '\'';
 STRING : '"' (ESC|~'"')* '"';
+
+CHAR_LITERAL: 'CHAR';
+
+//STRING_LITERAL : "CHAR";
 
 fragment
 ESC :  '\\' ('n'|'"');
