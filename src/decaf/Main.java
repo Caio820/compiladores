@@ -1,5 +1,3 @@
-package decaf;
-
 import java.io.*;
 //import antlr.Token;
 import org.antlr.v4.runtime.Token;
@@ -34,10 +32,14 @@ class Main {
 		        			case DecafLexer.ID:
 		        				type = " IDENTIFIER";
 		        				break;
-							case DecafLexer.CHAR_LITERAL:
+						case DecafLexer.CHAR_LITERAL:
 							type = " CHARLITERAL";
 						        break;
-		        			}
+						case DecafLexer.HEXA:
+							type = " INTLITERAL";
+							break;
+						}
+						
 		        			System.out.println (token.getLine() + type + " " + text);
 		        		}
 		        		done = true;
@@ -62,4 +64,3 @@ class Main {
         }
     }
 }
-
