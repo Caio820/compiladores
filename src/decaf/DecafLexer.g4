@@ -21,15 +21,15 @@ IDENTIFICADORES: 'class'|'boolean'|'break'|'callout'|'continue'|'else'|'for'|'in
 ABRE_CHAVES : '{';
 FECHA_CHAVES : '}';
 
-//ABRE_PARENTESES : '(';
-//FECHA_PARENTESES : ')';
+ABRE_PARENTESES : '(';
+FECHA_PARENTESES : ')';
 
-//ABRE_COLCHETE : '[';
-//FECHA_COLCHETE : ']';
+ABRE_COLCHETE : '[';
+FECHA_COLCHETE : ']';
  
-//OPERADORES : '+' | '-' | '*' | '/' | '%' | '=' ;
-//COMPARADORES: '<' | '>' | '<=' | '>=' | '==' | '!=';
-//CONDICIONADORES: '&&' | '||';
+OPERADORES : '+' | '-' | '*' | '/' | '%' | '=' ;
+COMPARADORES: '<' | '>' | '<=' | '>=' | '==' | '!=';
+CONDICIONADORES: '&&' | '||';
 
 
 ID : LETRA (LETRA | DIGITO)*;
@@ -43,11 +43,11 @@ INT: DIGITO+;
 HEXA: '0x' [0-9a-fA-F]+;
 
 CHAR : '\'' (ESC|~'\'') '\'';
-STRING : '"' (ESC|~'"')* '"';
+//STRING : '"' (ESC|~'"')* '"';
 
-//CHAR_LITERAL:		'\'' (ESC|~'\'') '\'';
-//STRING_LITERAL:		'"' (ESC|~'"')* '"';
-//BOOLEAN_LITERAL:    ('true'|'false');
+CHAR_LITERAL:		'\'' (ESC|~'\'') '\'';
+STRING_LITERAL:		'"' (ESC|~'"')* '"';
+BOOLEAN_LITERAL:    ('true'|'false');
 
 WS_ : (' ' | '\n' ) -> skip;
 

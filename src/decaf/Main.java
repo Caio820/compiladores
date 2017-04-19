@@ -33,7 +33,7 @@ class Main {
 		        			{
 		        			case DecafLexer.ID:
 		        				type = " IDENTIFIER";
-		        				break;						
+		        				  break;						      
 							case DecafLexer.STRING_LITERAL:
 								type = " STRINGLITERAL";
 								break;	
@@ -74,3 +74,4 @@ class Main {
 }
 
 //Comando para compilar projeto: java -jar dist/Compiler.jar -target scan -degub ../scanner/nomeEntrada 
+
