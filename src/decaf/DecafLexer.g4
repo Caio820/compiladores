@@ -15,8 +15,9 @@ tokens
 }
 
 
-IDENTIFICADORES: 'class'|'boolean'|'break'|'callout'|'continue'|'else'|'for'|'int'|'return'|'void';
+IDENTIFICADORES:'class'|'boolean'|'break'|'callout'|'continue'|'else'|'for'|'int'|'return'|'void'|'if';
 //PROGRAMA : 'class' 'Program' ABRE_CHAVES CAMPO* METODO* FECHA_CHAVES;
+
 
 ABRE_CHAVES : '{';
 FECHA_CHAVES : '}';
@@ -31,10 +32,11 @@ OPERADORES : '+' | '-' | '*' | '/' | '%' | '=' ;
 COMPARADORES: '<' | '>' | '<=' | '>=' | '==' | '!=';
 CONDICIONADORES: '&&' | '||';
 
+BOOLEAN_LITERAL:  ('true'|'false' );
 
-ID : LETRA (LETRA | DIGITO)*;
+ID : LETRA(LETRA | DIGITO)*;
 
-LETRA  : ('a'..'z' | 'A'..'Z')+;
+LETRA  : ('a'..'z' | 'A'..'Z' | '_')+;
 
 DIGITO : ('0'..'9')+;
 
@@ -42,12 +44,8 @@ INT: DIGITO+;
 
 HEXA: '0x' [0-9a-fA-F]+;
 
-CHAR : '\'' (ESC|~'\'') '\'';
-//STRING : '"' (ESC|~'"')* '"';
-
-CHAR_LITERAL:		'\'' (ESC|~'\'') '\'';
-STRING_LITERAL:		'"' (ESC|~'"')* '"';
-BOOLEAN_LITERAL:    ('true'|'false');
+CHAR_LITERAL : '\'' (ESC|~'\'') '\'';
+STRING_LITERAL : '"' (ESC|~'"')* '"';
 
 WS_ : (' ' | '\n' ) -> skip;
 
