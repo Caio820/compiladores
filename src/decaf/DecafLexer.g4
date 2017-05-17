@@ -1,55 +1,61 @@
 lexer grammar DecafLexer;
 
 @header {
-package decaf;
+  package decaf;
 }
 
-options
-{
+options {
   language=Java;
 }
 
-tokens
-{
+tokens {
   TK_class
 }
 
-
 IDENTIFICADORES:'class'|'boolean'|'break'|'callout'|'continue'|'else'|'for'|'int'|'return'|'void'|'if';
-//PROGRAMA : 'class' 'Program' ABRE_CHAVES CAMPO* METODO* FECHA_CHAVES;
-
 
 ABRE_CHAVES : '{';
 FECHA_CHAVES : '}';
 
-ABRE_PARENTESES : '(';
-FECHA_PARENTESES : ')';
+ABRE_PARENTESE : '(';
+FECHA_PARENTESE : ')';
 
 ABRE_COLCHETE : '[';
 FECHA_COLCHETE : ']';
- 
-OPERADORES : '+' | '-' | '*' | '/' | '%' | '=' ;
+
+PONTOS: ',' | '.' | ';' | ':';
+
+INT: DIGITO+ | HEXA;
+
+BOOLEAN_LITERAL: 'true' | 'false';
+
+HEXA: '0x'[0-9a-fA-F]+;
+
+CHAR_LITERAL:  '\'' CHAR '\'' | '\'' ESC+ '\'';
+
+STRING_LITERAL: '\"' STRING_CARS? '\"';
+
+ID: LETRA (LETRA | DIGITO)*;
+
+LETRA : 'a'..'z' | 'A'..'Z' | '_';
+
+DIGITO: '0'..'9';
+
+fragment
+STRING_CARS: STRING_CAR+;
+
+fragment
+STRING_CAR: CHAR | ESC;
+
+fragment
+CHAR: ~['"\\];
+
+OPERADORES: '+' | '-' | '*' | '/' | '%' | '=';
 COMPARADORES: '<' | '>' | '<=' | '>=' | '==' | '!=';
 CONDICIONADORES: '&&' | '||';
 
-BOOLEAN_LITERAL:  ('true'|'false' );
-
-ID : LETRA(LETRA | DIGITO)*;
-
-LETRA  : ('a'..'z' | 'A'..'Z' | '_')+;
-
-DIGITO : ('0'..'9')+;
-
-INT: DIGITO+;
-
-HEXA: '0x' [0-9a-fA-F]+;
-
-CHAR_LITERAL : '\'' (ESC|~'\'') '\'';
-STRING_LITERAL : '"' (ESC|~'"')* '"';
-
-WS_ : (' ' | '\n' ) -> skip;
-
+WS_ : [ \n\t\r]+ -> skip;
 COMENTARIO : '//' (~'\n')* '\n' -> skip;
 
 fragment
-ESC :  '\\' ('n'|'"');
+ESC : '\\' [btnrf"'\\];
