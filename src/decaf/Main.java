@@ -31,22 +31,21 @@ class Main {
 
 		        			switch (token.getType())
 		        			{
-		        			case DecafLexer.ID:
-		        				type = " IDENTIFIER";
-		        				  break;						      
-							case DecafLexer.STRING_LITERAL:
-								type = " STRINGLITERAL";
-								break;	
-							case DecafLexer.CHAR_LITERAL:
-							    type = " CHARLITERAL";
-								break;
-						    case DecafLexer.HEXA:
-								type = " INTLITERAL";
-								break;
-							case DecafLexer.BOOLEAN_LITERAL:
-								type = " BOOLEANLITERAL";
-								break;
-								 								
+		                                case DecafLexer.ID:
+		        			        type = " IDENTIFIER";
+		        			        break;						
+						case DecafLexer.CHAR_LITERAL:
+							type = " CHARLITERAL";
+							break;					
+						case DecafLexer.STRING_LITERAL:
+							type = " STRINGLITERAL";
+							break;
+						case DecafLexer.INT:
+							type = " INTLITERAL";
+							break;
+						case DecafLexer.BOOLEAN_LITERAL:
+							type = " BOOLEANLITERAL";
+							break;							 								
 		        			}
 		        			System.out.println (token.getLine() + type + " " + text);
 		        		}
@@ -63,7 +62,7 @@ class Main {
         		DecafLexer lexer = new DecafLexer(new ANTLRInputStream(inputStream));
 				CommonTokenStream tokens = new CommonTokenStream(lexer);
         		DecafParser parser = new DecafParser(tokens);
-                parser.program();
+                parser.programa();
         	}
         	
         } catch(Exception e) {
@@ -73,5 +72,7 @@ class Main {
     }
 }
 
-//Comando para compilar projeto: java -jar dist/Compiler.jar -target scan -degub ../scanner/nomeEntrada 
 
+/*Comando para compilar projeto: java -jar dist/Compiler.jar -target scan -degub ../scanner/nomeEntrada  
+                                 java -jar dist/Compiler.jar -target parser -degub ../parser/nomeEntrada
+*/
