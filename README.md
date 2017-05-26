@@ -1,4 +1,4 @@
-# compiladores
+# Compiladores
 
 Objetivo
 
@@ -65,8 +65,6 @@ ANTLR Parser Generator Version 4.5.3
 -lib ___ specify location of .tokens files
 ...
 
-Referências
-
 Executando o Compilador
 
 Passo 1 - Realizar o download do Repósitorio.
@@ -82,6 +80,8 @@ Passo 4.1 - Após a compilação do ant, você deve digitar o seguinte comando p
 java -jar dist/Compiler.jar -target parser -degub ../parser/nomeEntrada
 
 P.S: Nos comandos acima, a parte de "nomeEntrada", deve ser substituída pelos arquivos de entrada das pastas de Scanner e Parser do Repositório.
+
+Referências
 
 Aho, A., Lam, M., Sethi, R., and Ullman, J. (2007).
 Compiladores Principios Técnicas e Ferramentas.
