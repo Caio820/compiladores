@@ -67,6 +67,22 @@ ANTLR Parser Generator Version 4.5.3
 
 Referências
 
+Executando o Compilador
+
+Passo 1 - Realizar o download do Repósitorio.
+
+Passo 2 - Ir até o dirétorio, onde está o arquivo build.xml e as pastas do repositório utilizando o Terminal(Linux) ou o Prompt(Windows).
+
+Passo 3 - Digite o comando ant (caso seja necessário, você deve baixar e instalar o pacote no site http://ant.apache.org/).
+
+Passo 4 - Após a compilação do ant, você deve digitar o seguinte comando para testar o scanner(Análise Léxica):
+java -jar dist/Compiler.jar -target scan -degub ../scanner/nomeEntrada  
+                                 
+Passo 4.1 - Após a compilação do ant, você deve digitar o seguinte comando para testar o parser(Análise Sintática):
+java -jar dist/Compiler.jar -target parser -degub ../parser/nomeEntrada
+
+P.S: Nos comandos acima, a parte de "nomeEntrada", deve ser substituída pelos arquivos de entrada das pastas de Scanner e Parser do Repositório.
+
 Aho, A., Lam, M., Sethi, R., and Ullman, J. (2007).
 Compiladores Principios Técnicas e Ferramentas.
 Pearson, 2a. edition
