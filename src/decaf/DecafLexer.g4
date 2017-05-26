@@ -26,7 +26,7 @@ RETURN: 'return';
 VOID: 'void';
 TIPO: 'int' | 'boolean';
 
-INT: DIGITO+ | HEXA;
+INT: DIGITO+ | HEXA | SUBTRACAO DIGITO+;
 
 BOOLEAN_LITERAL: 'true' | 'false';
 
