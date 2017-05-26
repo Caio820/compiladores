@@ -12,7 +12,7 @@ options
 
 //program: TK_class ID ABRE_CHAVES FECHA_CHAVES EOF;
 
-programa: CLASS PROGRAMA ABRE_CHAVES declarar* FECHA_CHAVES EOF;
+programa: CLASS PROGRAMA ABRE_CHAVES (declarar)* FECHA_CHAVES EOF;
 
 declarar: campo_declara | metodo_declara;
 
@@ -20,11 +20,11 @@ campo_declara: campo(VIRGULA campo)*;
 
 campo: TIPO ID PONTO_VIRGULA | TIPO ID ABRE_COLCHETE INT FECHA_COLCHETE PONTO_VIRGULA;
 
-metodo_declara: (TIPO | VOID) ID ABRE_PARENTESES (parametro(VIRGULA parametro)*)* FECHA_PARENTESES BLOCO;
-
 parametro: TIPO ID;
 
 bloco: ABRE_CHAVES (campo_declara)* (estrutura)* FECHA_CHAVES;
+
+metodo_declara: (TIPO | VOID) ID ABRE_PARENTESES (parametro(VIRGULA parametro)*)* FECHA_PARENTESES bloco;
 
 estrutura: IF ABRE_PARENTESES expressao FECHA_PARENTESES bloco (ELSE bloco)?
          | WHILE ABRE_PARENTESES expressao FECHA_PARENTESES bloco
@@ -51,4 +51,3 @@ chama_metodo: ID ABRE_PARENTESES argumento* FECHA_PARENTESES;
 argumento: expressao (VIRGULA expressao)*;
 
 literal: INT | CHAR_LITERAL | BOOLEAN_LITERAL;
-
