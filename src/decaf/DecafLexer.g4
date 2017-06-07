@@ -50,51 +50,23 @@ STRING_CAR: CHAR | ESC;
 
 fragment
 CHAR: ~['"\\];
-
 ABRE_CHAVES : '{';
 FECHA_CHAVES : '}';
-
 ABRE_PARENTESES : '(';
 FECHA_PARENTESES : ')';
-
 ABRE_COLCHETE : '[';
 FECHA_COLCHETE : ']';
-
 VIRGULA: ',';
 PONTO_VIRGULA: ';';
 PONTO:'.';
 DOIS_PONTOS: ':';
 EXCLAMACAO: '!';
-
-OP: ARITMETICO | COMPARADOR | IGUALDADE | CONDICAO;
-
-ATRIBUICAO: IGUAL | MAIOR_IGUAL | MENOR_IGUAL | MAIOR_QUE | MENOR_QUE;
-
-ARITMETICO: ADICAO | SUBTRACAO | MULTIPLICACAO | DIVISAO | MOD;
-
-COMPARADOR: MAIOR_IGUAL | MENOR_IGUAL | MAIOR_QUE | MENOR_QUE;
-
-IGUALDADE: COMPARA | DIFERENTE;
-
-CONDICAO: AND | OR;
-
-ADICAO: '+';
+OP: '+' | '*' | '/' | '%' | '<' | '>' | '>=' | '<=' | '!=' | '==' | '&&' | '||';
+ATRIBUICAO: '+=' | '-=' | '*=' | '/=';
 SUBTRACAO: '-';
-MULTIPLICACAO: '*';
-DIVISAO: '/';
-MOD: '%';
 IGUAL: '=';
-
-MENOR_QUE: '<';
-MAIOR_QUE: '>';
-MENOR_IGUAL: '<=';
-MAIOR_IGUAL: '>=';
-COMPARA: '==';
-DIFERENTE: '!=';
-
 AND: '&&';
 OR: '||';
-
 WS_ : [ \n\t\r]+ -> skip;
 COMENTARIO : '//' (~'\n')* '\n' -> skip;
 
