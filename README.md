@@ -79,6 +79,9 @@ java -jar dist/Compiler.jar -target scan -degub ../scanner/nomeEntrada
 Passo 4.1 - Após a compilação do ant, você deve digitar o seguinte comando para testar o parser(Análise Sintática):
 java -jar dist/Compiler.jar -target parser -degub ../parser/nomeEntrada
 
+Passo 4.2 - Executar a Árvore Sintática: 
+java -jar dist/Compiler.jar -target inter ../parser/nomeEntrada
+
 P.S: Nos comandos acima, a parte de "nomeEntrada", deve ser substituída pelos arquivos de entrada das pastas de Scanner e Parser do Repositório.
 
 Referências
